@@ -45,7 +45,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-gray-200 max-w-lg mb-6">
-            Create your own portfolio with this different template. Make your profile different with this template and be stronger in attracting employers.
+            Transforming complex ideas into simple, stunning designs that make innovation look effortless.
           </p>
 
           <div className="flex gap-4 text-2xl text-gray-300">
