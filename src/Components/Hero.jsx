@@ -3,6 +3,19 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from "react-icons/fa";
 import TextTrail from './TextTrail';
 import Galaxy from './Galaxy';
 
+const heroData={
+                name: "Ali Muhammad",
+                title: "a programmer",
+                description: "Transforming complex ideas into simple, stunning designs that make innovation look effortless.",
+                img: ali,
+                socialLinks:[
+                  {id: 1, icon:<FaEnvelope className="w-8 h-8" />, link:"mailto:alimuhammadk360@gmail.com" },
+                  {id: 2, icon:<FaGithub className="w-8 h-8" />, link:"https://github.com/Ali-khan1816" },
+                  {id: 2, icon:<FaLinkedin className="w-8 h-8" />, link:"https://www.linkedin.com/in/ali-muhammad-khan/" },
+                  {id: 3, icon:<FaInstagram className="w-8 h-8" />, link:"https://www.instagram.com/ali_muhammad_khan_official"  }
+                ]
+}
+
 const Hero = () => {
   return (
     <section
@@ -26,7 +39,7 @@ const Hero = () => {
             <span className="block text-3xl md:pt-15">Hi, I’m</span>
             <span className="block mt-2 text-5xl md:text-6xl">
               <TextTrail
-                text="Ali Muhammad"
+                text={heroData.name}
                 fontFamily="Figtree"
                 fontWeight="1000"
                 noiseFactor={1.2}
@@ -41,23 +54,37 @@ const Hero = () => {
                 supersample={2}
               />
             </span>
-            <span className="block mt-3 text-3xl pt-">a programmer</span>
+            <span className="block mt-3 text-3xl pt-">{heroData.title}</span>
           </h1>
 
-          <p className="text-gray-200 max-w-lg mb-6">
-            Transforming complex ideas into simple, stunning designs that make innovation look effortless.
-          </p>
+          <p className="text-gray-200 max-w-lg mb-6">  {heroData.description}  </p>
 
           <div className="flex gap-4 text-2xl text-gray-300">
-            <a href="mailto:alimuhammadk360@gmail.com" className="hover:text-blue-500 transition"><FaEnvelope className="w-8 h-8" /></a>
+          {heroData.socialLinks.map((social)=>(
+            <a 
+              key={social.id}
+              href={social.link}
+              target='_blank'
+              rel='noreferrer'
+              className="hover:text-blue-500 transition"
+              >
+                {social.icon}
+              </a>
+          ))}
+            </div>
+        </div>
+            {/* <a href="mailto:alimuhammadk360@gmail.com" className="hover:text-blue-500 transition"><FaEnvelope className="w-8 h-8" /></a>
             <a href="https://github.com/Ali-khan1816" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition"><FaGithub className="w-8 h-8" /></a>
             <a href="https://www.linkedin.com/in/ali-muhammad-khan/" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition"><FaLinkedin className="w-8 h-8" /></a>
-            <a href="https://www.instagram.com/ali_muhammad_khan_official?igsh=MTl1bWZtZGx5ZGt5NA%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition"><FaInstagram className="w-8 h-8" /></a>
-          </div>
-        </div>
+            <a href="https://www.instagram.com/ali_muhammad_khan_official?igsh=MTl1bWZtZGx5ZGt5NA%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition"><FaInstagram className="w-8 h-8" /></a> */}
+ 
 
         <div className="flex-1 flex justify-center md:justify-end">
-          <img src={ali} alt="Ali" className="w-96 md:w-80 lg:w-[500px] xl:w-[650px] object-contain" />
+          <img
+            src={heroData.img}
+            alt={heroData.name}
+            className="w-96 md:w-80 lg:w-[500px] xl:w-[650px] object-contain"
+            />
         </div>
       </div>
     </section>

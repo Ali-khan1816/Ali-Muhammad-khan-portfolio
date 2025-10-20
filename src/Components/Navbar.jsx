@@ -6,7 +6,15 @@ import services_icon from '../assets/services-icon.png'
 import contact_icon from '../assets/contact-icon.png'
 
 const Navbar = () => {
-  return (
+
+    const navItems = [
+                      {id: 1, name:'Home',  icon:home_icon, link:'#home' },
+                      {id: 2, name:'About', icon:about_icon, link:'#about'},
+                      {id: 3, name:'Resume', icon:resume_icon, link:'/AliMuhammadCV.pdf', download:true},
+                      {id: 4, name:'Services', icon:services_icon, link:'#services'},
+                      {id: 5, name:'contact', icon:contact_icon, link:'#contact'}
+                      ]
+     return (
     <nav
       className='fixed bottom-0 left-0 w-full flex justify-around py-2 px-2 
                  bg-gray-800/50 backdrop-blur-md shadow-lg rounded-t-2xl
@@ -15,7 +23,21 @@ const Navbar = () => {
                  lg:-translate-y-1/2 lg:w-auto lg:rounded-2xl lg:space-y-6 lg:py-3 lg:px-4 z-50 
                  scroll-smooth'   
     >
-      <a href='#home' className='flex flex-col items-center text-white hover:text-blue-400 transition'>
+      {navItems.map((item) => (
+        <a key={item.id}
+          href={item.link}
+          {...(item.download ? {download: item.link} : {})}
+          className='flex flex-col items-center text-white hover:text-blue-400 transition'
+        >
+          <img  className='w-8 h-8 filter invert brightness-0'
+          src={item.icon}
+          alt={item.name} />
+          <span className='text-xs sm:text-sm hover:font-bold py-1'>{item.name}</span>
+        </a>
+      ))}
+      
+     
+      {/* <a href='#home' className='flex flex-col items-center text-white hover:text-blue-400 transition'>
         <img className='w-8 h-8 filter invert brightness-0' src={home_icon} alt="Home"/>
         <span className='text-xs sm:text-sm hover:font-bold py-1'>Home</span>
       </a>
@@ -38,7 +60,7 @@ const Navbar = () => {
       <a href='#contact' className='flex flex-col items-center text-white hover:text-blue-400 transition'>
         <img className='w-8 h-8 filter invert brightness-0' src={contact_icon} alt="Contact"/>
         <span className='text-xs sm:text-sm hover:font-bold py-1'>Contact</span>
-      </a>
+      </a> */}
     </nav>
   )
 }
