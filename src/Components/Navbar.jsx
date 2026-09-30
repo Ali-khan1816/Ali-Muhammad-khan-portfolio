@@ -1,4 +1,5 @@
-// Last edited by you@example.com @ 30/09/26 15:26.
+// Last edited by you@example.com @ 30/09/26 16:15.
+import { FaLaptopCode } from "react-icons/fa";
 import home_icon from "../assets/home-icon.png";
 import about_icon from "../assets/about-icon.png";
 import resume_icon from "../assets/resume-icon.png";
@@ -9,15 +10,16 @@ import { siteData } from "../data/siteData";
 const navItems = [
   { id: 1, name: "Home", icon: home_icon, link: "#home" },
   { id: 2, name: "About", icon: about_icon, link: "#about" },
+  { id: 3, name: "Projects", Icon: FaLaptopCode, link: "#projects" },
+  { id: 4, name: "Services", icon: services_icon, link: "#services" },
   {
-    id: 3,
+    id: 5,
     name: "Resume",
     icon: resume_icon,
     link: siteData.cvPath,
     download: siteData.cvFileName,
   },
-  { id: 4, name: "Services", icon: services_icon, link: "#services" },
-  { id: 5, name: "Contact", icon: contact_icon, link: "#contact" },
+  { id: 6, name: "Contact", icon: contact_icon, link: "#contact" },
 ];
 
 const Navbar = () => {
@@ -36,11 +38,15 @@ const Navbar = () => {
           {...(item.download ? { download: item.download } : {})}
           className="flex flex-col items-center text-white hover:text-blue-400 transition"
         >
-          <img
-            className="w-8 h-8 filter invert brightness-0"
-            src={item.icon}
-            alt=""
-          />
+          {item.Icon ? (
+            <item.Icon className="w-8 h-8 p-1" aria-hidden="true" />
+          ) : (
+            <img
+              className="w-8 h-8 filter invert brightness-0"
+              src={item.icon}
+              alt=""
+            />
+          )}
           <span className="text-xs sm:text-sm hover:font-bold py-1">
             {item.name}
           </span>

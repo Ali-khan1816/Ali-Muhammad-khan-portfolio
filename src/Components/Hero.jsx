@@ -1,5 +1,5 @@
-// Last edited by you@example.com @ 30/09/26 15:20.
-import ali from "../assets/ali.png";
+// Last edited by you@example.com @ 30/09/26 17:03.
+import ali from "../assets/hero.png";
 import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from "react-icons/fa";
 import TextTrail from "./TextTrail";
 import Galaxy from "./Galaxy";
