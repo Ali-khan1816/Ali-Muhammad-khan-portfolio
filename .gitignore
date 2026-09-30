@@ -1,3 +1,4 @@
+# Last edited by you@example.com @ 30/09/26 15:45.
 # Logs
 logs
 *.log
@@ -22,3 +23,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.env
