@@ -6,8 +6,8 @@ export const siteData = {
   email: "alimuhammadk360@gmail.com",
   phone: "+92 317 5585860",
   location: "Islamabad, Pakistan",
-  cvPath: "/Ali-Muhammad-CV.docx",
-  cvFileName: "Ali-Muhammad-CV.docx",
+  cvPath: "/Ali-Muhammad-CV.pdf",
+  cvFileName: "Ali-Muhammad-CV.pdf",
   socials: {
     github: "https://github.com/Ali-khan1816",
     linkedin: "https://www.linkedin.com/in/ali-muhammad-khan/",
