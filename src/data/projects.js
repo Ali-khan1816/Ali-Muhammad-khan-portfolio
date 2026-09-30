@@ -1,4 +1,4 @@
-// Last edited by you@example.com @ 30/09/26 16:12.
+// Last edited by you@example.com @ 30/09/26 22:25.
 // src/data/projects.js
 import pizzaWizzaImage from "../assets/projects/pizzaStore.png";
 import eStoreImage from "../assets/projects/eStore.png";
