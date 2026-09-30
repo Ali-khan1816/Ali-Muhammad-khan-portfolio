@@ -1,4 +1,4 @@
-// Last edited by you@example.com @ 30/09/26 16:19.
+// Last edited by you@example.com @ 30/09/26 23:07.
 import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from "react-icons/fa";
 import { siteData } from "../data/siteData";
 
@@ -36,6 +36,7 @@ const footerData = {
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
+    { name: "Education", href: "#education" },
     { name: "Services", href: "#services" },
     { name: "Contact", href: "#contact" },
   ],

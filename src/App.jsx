@@ -1,6 +1,7 @@
-// Last edited by you@example.com @ 30/09/26 16:14.
+// Last edited by you@example.com @ 30/09/26 22:58.
 import About from "./Components/About";
 import Contact from "./Components/Contact";
+import Education from "./Components/Education";
 import Footer from "./Components/Footer";
 import Hero from "./Components/Hero";
 import Navbar from "./Components/Navbar";
@@ -16,6 +17,7 @@ function App() {
       <About />
       <Skills />
       <Projects />
+      <Education />
       <Services />
       <Contact />
       <Footer />
