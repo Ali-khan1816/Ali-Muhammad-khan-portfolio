@@ -1,8 +1,9 @@
-// Last edited by you@example.com @ 30/09/26 16:14.
+// Last edited by you@example.com @ 01/10/26 11:37.
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { projects, projectFilters } from "../data/projects";
+import { CardContainer, CardBody, CardItem } from "./ui/ThreeDCard";
 
 const Projects = () => {
   const [active, setActive] = useState("All");
@@ -52,63 +53,88 @@ const Projects = () => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3 }}
-              className="flex flex-col bg-[#1a1a1a]/70 border border-gray-500/20 rounded-2xl overflow-hidden shadow-[0_0_20px_#ffffff11] hover:border-blue-500/50 transition"
+              className="h-full"
             >
-              {project.image ? (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover"
-                />
-              ) : (
-                <div
-                  className="w-full h-48 flex items-center justify-center text-6xl bg-gradient-to-br from-purple-900/60 via-[#1a1a1a] to-blue-900/40"
-                  aria-hidden="true"
-                >
-                  {project.emoji}
-                </div>
-              )}
+              <CardContainer>
+                <CardBody className="flex flex-col bg-[#1a1a1a]/70 border border-gray-500/20 rounded-2xl p-5 shadow-[0_0_20px_#ffffff11] hover:border-purple-500/50 hover:shadow-[0_0_30px_#8400ff33] transition">
+                  <CardItem translateZ={70} className="w-full">
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-48 object-cover rounded-xl"
+                      />
+                    ) : (
+                      <div
+                        className="w-full h-48 flex items-center justify-center text-6xl rounded-xl bg-gradient-to-br from-purple-900/60 via-[#1a1a1a] to-blue-900/40"
+                        aria-hidden="true"
+                      >
+                        {project.emoji}
+                      </div>
+                    )}
+                  </CardItem>
 
-              <div className="flex flex-col flex-1 p-6">
-                <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-400 text-sm mb-4 flex-1">
-                  {project.description}
-                </p>
+                  <CardItem
+                    as="h3"
+                    translateZ={50}
+                    className="text-2xl font-bold mt-5 mb-2"
+                  >
+                    {project.title}
+                  </CardItem>
 
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {project.tech.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-3 py-1 rounded-full bg-gray-700/60 text-gray-200"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                  <CardItem
+                    as="p"
+                    translateZ={40}
+                    className="text-gray-400 text-sm mb-4 flex-1"
+                  >
+                    {project.description}
+                  </CardItem>
 
-                <div className="flex gap-4">
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 transition rounded-xl px-4 py-2 text-sm font-semibold"
-                    >
-                      <FaExternalLinkAlt /> Live Demo
-                    </a>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-2 border border-gray-500 hover:border-white transition rounded-xl px-4 py-2 text-sm font-semibold"
-                    >
-                      <FaGithub /> Code
-                    </a>
-                  )}
-                </div>
-              </div>
+                  <CardItem
+                    translateZ={30}
+                    className="flex flex-wrap gap-2 mb-5"
+                  >
+                    {project.tech.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs px-3 py-1 rounded-full bg-gray-700/60 text-gray-200"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </CardItem>
+
+                  <div
+                    className="flex gap-4"
+                    style={{ transformStyle: "preserve-3d" }}
+                  >
+                    {project.live && (
+                      <CardItem
+                        as="a"
+                        translateZ={40}
+                        href={project.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 rounded-xl px-4 py-2 text-sm font-semibold"
+                      >
+                        <FaExternalLinkAlt /> Live Demo
+                      </CardItem>
+                    )}
+                    {project.github && (
+                      <CardItem
+                        as="a"
+                        translateZ={40}
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center gap-2 border border-gray-500 hover:border-white rounded-xl px-4 py-2 text-sm font-semibold"
+                      >
+                        <FaGithub /> Code
+                      </CardItem>
+                    )}
+                  </div>
+                </CardBody>
+              </CardContainer>
             </motion.article>
           ))}
         </AnimatePresence>

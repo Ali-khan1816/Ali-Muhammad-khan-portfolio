@@ -1,4 +1,3 @@
-// Last edited by you@example.com @ 30/09/26 22:30.
 import {
   FaHtml5,
   FaCss3Alt,
@@ -12,6 +11,7 @@ import {
   FaProjectDiagram,
   FaCheckDouble,
 } from "react-icons/fa";
+import { VscCode } from "react-icons/vsc";
 import {
   SiTailwindcss,
   SiNextdotjs,
@@ -20,6 +20,7 @@ import {
   SiJsonwebtokens,
   SiVercel,
 } from "react-icons/si";
+import BackgroundRippleEffect from "./ui/BackgroundRippleEffect";
 
 const skillCategories = [
   {
@@ -87,9 +88,8 @@ const skillCategories = [
     skills: [
       {
         name: "VS Code",
-        icon: <FaGitAlt className="text-orange-500" />,
-        description:
-          "tailored to capture the unique, interactive developer-theme of your website.",
+        icon: <VscCode className="text-sky-500" />,
+        description: "My main editor for fast, productive development.",
       },
       {
         name: "Git",
@@ -139,39 +139,44 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="bg-[#101010] text-white py-16 px-6 md:px-16"
+      className="relative overflow-hidden bg-[#101010] text-white py-16 px-6 md:px-16"
     >
-      <h2 className="text-center text-6xl font-bold mb-4">Skills</h2>
-      <p className="text-center text-gray-400 max-w-2xl mx-auto mb-16">
-        The tools and technologies I use to build and ship web applications,
-        plus my growing work in digital IC design.
-      </p>
+      <BackgroundRippleEffect />
 
-      <div className="max-w-7xl mx-auto space-y-14">
-        {skillCategories.map((category) => (
-          <div key={category.title}>
-            <h3 className="text-2xl font-semibold text-gray-200 mb-6 border-l-4 border-purple-600 pl-3">
-              {category.title}
-            </h3>
+      {/* pointer-events-none: khali jagah par click background tak pohanche */}
+      <div className="relative z-10 pointer-events-none">
+        <h2 className="text-center text-6xl font-bold mb-4">Skills</h2>
+        <p className="text-center text-gray-400 max-w-2xl mx-auto mb-16">
+          The tools and technologies I use to build and ship web applications,
+          plus my growing work in digital IC design.
+        </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-              {category.skills.map((skill) => (
-                <div
-                  key={skill.name}
-                  className="bg-[#1a1a1a]/60 border border-gray-500/20 rounded-2xl p-5 text-center
-                             hover:-translate-y-1 hover:border-purple-500/60 hover:shadow-[0_0_20px_#8400ff33]
-                             transition duration-300"
-                >
-                  <div className="flex justify-center mb-3 text-5xl">
-                    {skill.icon}
+        <div className="max-w-7xl mx-auto space-y-14">
+          {skillCategories.map((category) => (
+            <div key={category.title}>
+              <h3 className="text-2xl font-semibold text-gray-200 mb-6 border-l-4 border-purple-600 pl-3">
+                {category.title}
+              </h3>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                {category.skills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="pointer-events-auto bg-[#1a1a1a]/80 backdrop-blur-sm border border-gray-500/20 rounded-2xl p-5 text-center
+                               hover:-translate-y-1 hover:border-purple-500/60 hover:shadow-[0_0_20px_#8400ff33]
+                               transition duration-300"
+                  >
+                    <div className="flex justify-center mb-3 text-5xl">
+                      {skill.icon}
+                    </div>
+                    <h4 className="font-bold text-xl mb-1">{skill.name}</h4>
+                    <p className="text-sm opacity-70">{skill.description}</p>
                   </div>
-                  <h4 className="font-bold text-xl mb-1">{skill.name}</h4>
-                  <p className="text-sm opacity-70">{skill.description}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
